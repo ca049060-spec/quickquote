@@ -408,26 +408,27 @@
 
 <script>
 // ── Price book ──
+// Defaults benchmarked for GTA/Durham, Ontario (2025-26 market rates)
 const DEFAULT_PRICES = {
-  sealcoat:   { label: "Seal coat (per sq ft)",            price: 0.22 },
-  crackfill:  { label: "Crack sealing (per lin ft)",       price: 3.50 },
-  pothole:    { label: "Pothole repair (each)",            price: 85   },
+  sealcoat:   { label: "Seal coat (per sq ft)",            price: 0.40 },
+  crackfill:  { label: "Crack sealing (per lin ft)",       price: 3.00 },
+  pothole:    { label: "Pothole repair (each)",            price: 150  },
   edgeclean:  { label: "Edge cleanup (per lin ft)",        price: 2.00 },
-  stall_new:  { label: "Parking stall — new layout (ea)", price: 12   },
-  stall_re:   { label: "Parking stall — re-stripe (ea)",  price: 5    },
-  firelane:   { label: "Fire lane (per lin ft)",           price: 2.00 },
-  arrow:      { label: "Directional arrow (each)",         price: 45   },
-  handicap:   { label: "Handicap symbol (each)",           price: 110  },
-  stopbar:    { label: "Stop bar (each)",                  price: 35   },
-  wash_drive: { label: "Pressure wash — driveway (sq ft)", price: 0.15 },
-  wash_park:  { label: "Pressure wash — parking lot (sq ft)", price: 0.10 },
-  wash_side:  { label: "Pressure wash — sidewalk (sq ft)", price: 0.18 },
-  wash_house: { label: "Pressure wash — house (sq ft)",   price: 0.16 },
-  labor:      { label: "Labor rate (per hour)",            price: 65   },
+  stall_new:  { label: "Parking stall — new layout (ea)", price: 10   },
+  stall_re:   { label: "Parking stall — re-stripe (ea)",  price: 6    },
+  firelane:   { label: "Fire lane (per lin ft)",           price: 2.50 },
+  arrow:      { label: "Directional arrow (each)",         price: 35   },
+  handicap:   { label: "Handicap symbol (each)",           price: 100  },
+  stopbar:    { label: "Stop bar (each)",                  price: 40   },
+  wash_drive: { label: "Pressure wash — driveway (sq ft)", price: 0.40 },
+  wash_park:  { label: "Pressure wash — parking lot (sq ft)", price: 0.18 },
+  wash_side:  { label: "Pressure wash — sidewalk (sq ft)", price: 0.45 },
+  wash_house: { label: "Pressure wash — house (sq ft)",   price: 0.45 },
+  labor:      { label: "Labor rate (per hour)",            price: 75   },
   margin:     { label: "Profit margin (%)",                price: 25   },
   deposit:    { label: "Deposit required (%)",             price: 30   },
 };
-let prices = JSON.parse(localStorage.getItem("qq_prices4") || "null") || structuredClone(DEFAULT_PRICES);
+let prices = JSON.parse(localStorage.getItem("qq_prices5") || "null") || structuredClone(DEFAULT_PRICES);
 for (const k in DEFAULT_PRICES) if (!prices[k]) prices[k] = structuredClone(DEFAULT_PRICES[k]);
 
 function renderPriceBook() {
@@ -440,7 +441,7 @@ function renderPriceBook() {
     el.appendChild(row);
   }
 }
-function savePrices() { localStorage.setItem("qq_prices4", JSON.stringify(prices)); }
+function savePrices() { localStorage.setItem("qq_prices5", JSON.stringify(prices)); }
 
 // ── Business info ──
 const BIZ_FIELDS = ["bizName","bizPhone","bizEmail","bizLicense"];
